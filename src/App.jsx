@@ -1,5 +1,6 @@
 /*import {useState} from 'react' */
 import './App.css'
+import { Link } from 'react-router-dom';
 import { DatalinesWithGrid } from "/home/lorenzo/Shopping-cart/src/components/neonblade-ui/datalines-with-grid/index.tsx";
 import NeonGlow from "/home/lorenzo/Shopping-cart/src/components/neonblade-ui/neon-glow";
 import NeonGlowCornerCutCard from "/home/lorenzo/Shopping-cart/src/components/neonblade-ui/neon-glow-corner-cut-card";
@@ -21,22 +22,26 @@ function App() {
       </h1>
       </div>
 
-      <div className="grid grid-cols-2  md:grid-cols-3 gap-6 pt-12">
-           <NeonGlowCornerCutCard
-        title=  "Shopping page"
-        colorA="green"
-        hoverEffect="pulse"
-        glowIntensity="high"
-        corner='all'
-          />
+      <div className="grid grid-cols-2  md:grid-cols-3 gap-6">
+           <Link to="/shop">
+             <NeonGlowCornerCutCard
+          title=  "Shopping page"
+          colorA="green"
+          hoverEffect="pulse"
+          glowIntensity="high"
+          corner='all'
+            />
+           </Link>
 
-           <NeonGlowCornerCutCard
-        title="Cart"
-        colorA="green"
-        hoverEffect="pulse"
-        glowIntensity="high"
-        corner='all'
-          />
+           <Link to="/cart">
+             <NeonGlowCornerCutCard
+          title="Cart"
+          colorA="green"
+          hoverEffect="pulse"
+          glowIntensity="high"
+          corner='all'
+            />
+           </Link>
       </div>
         {/* qui ci deve stare il componente del cart, usare react router per accedere al cart */}
 
