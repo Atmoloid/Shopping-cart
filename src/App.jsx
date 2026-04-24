@@ -3,6 +3,7 @@ import './App.css'
 import { DatalinesWithGrid } from "/home/lorenzo/Shopping-cart/src/components/neonblade-ui/datalines-with-grid/index.tsx";
 import NeonGlow from "/home/lorenzo/Shopping-cart/src/components/neonblade-ui/neon-glow";
 import NeonGlowCornerCutCard from "/home/lorenzo/Shopping-cart/src/components/neonblade-ui/neon-glow-corner-cut-card";
+import { ShoppingCart } from 'lucide';
 
 function App() {
   /*const [count, setCount] = useState(0)*/
@@ -22,18 +23,15 @@ function App() {
 
       <div className="grid grid-cols-2  md:grid-cols-3 gap-6 pt-12">
            <NeonGlowCornerCutCard
-        title="Neon Pulse"
-        description="Continuously pulsing glow on hover, high intensity."
+        title=  "Shopping page"
         colorA="green"
         hoverEffect="pulse"
         glowIntensity="high"
         corner='all'
           />
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-6 pt-12">
+
            <NeonGlowCornerCutCard
-        title="Neon Pulse"
-        description="Continuously pulsing glow on hover, high intensity."
+        title="Cart"
         colorA="green"
         hoverEffect="pulse"
         glowIntensity="high"
