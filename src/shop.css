@@ -1,0 +1,11 @@
+.shop-section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: fit-content;
+    padding: 2rem;
+}
