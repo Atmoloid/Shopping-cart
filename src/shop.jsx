@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { DatalinesWithGrid } from "/home/lorenzo/Shopping-cart/src/components/neonblade-ui/datalines-with-grid/index.tsx";
 import NeonGlow from "/home/lorenzo/Shopping-cart/src/components/neonblade-ui/neon-glow";
 import AccentFrame from "/home/lorenzo/Shopping-cart/src/components/neonblade-ui/accent-frame";
-import { ShoppingCart } from 'lucide-react';
+import { FishingHook, ShoppingCart } from 'lucide-react';
 
 
 function Shop() {
@@ -32,6 +32,9 @@ function Shop() {
       <h1 className="text-8xl font-bold font-orbitron uppercase">
               <NeonGlow colors="green">Shop</NeonGlow>
     </h1>
+    <button className='text-green-500 font-bold py-4 px-6 rounded flex items-center justify-center fixed top-4 right-4 z-50 transition-all' >
+      <ShoppingCart className="w-8 h-8" />
+    </button>
    <div className='shop-section'>
         {loading ? (
             <p className="text-green">Loading</p>

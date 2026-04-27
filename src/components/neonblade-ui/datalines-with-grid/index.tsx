@@ -219,7 +219,7 @@ export function DatalinesWithGrid({
   maxLines = 10,
   baseSpeed = 2,
   lineLength = 150,
-  spawnProbability = 0.1,
+  spawnProbability = 0.5,
   bgGridColor = "rgba(255,255,255,0.05)",
   overlay = false,
 }: DatalinesWithGridProps) {
