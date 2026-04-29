@@ -5,17 +5,25 @@ import { DatalinesWithGrid } from "/home/lorenzo/Shopping-cart/src/components/ne
 import NeonGlow from "/home/lorenzo/Shopping-cart/src/components/neonblade-ui/neon-glow";
 import AccentFrame from "/home/lorenzo/Shopping-cart/src/components/neonblade-ui/accent-frame";
 import { FishingHook, ShoppingCart } from 'lucide-react';
+import { useCart } from './CartContext';
 
 
 function Shop() {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [quantities, setQuantities] = useState({});
+    const { addToCart } = useCart();
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products?limit=10')
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
+                const initialQuantities = {};
+                data.forEach(product => {
+                    initialQuantities[product.id] = 1;
+                });
+                setQuantities(initialQuantities);
                 setLoading(false);
             })
             .catch(error => {
@@ -23,6 +31,22 @@ function Shop() {
                 setLoading(false);
             });
     }, []);
+
+    const handleAddToCart = (product, productId) => {
+        const quantity = parseInt(quantities[productId]) ;
+        addToCart(product, quantity);
+        setQuantities(prev => ({
+            ...prev,
+            [productId]: 1
+        }));
+    };
+
+    const handleQuantityChange = (productId, value) => {
+        setQuantities(prev => ({
+            ...prev,
+            [productId]: value
+        }));
+    };
 
     return (
         <>
@@ -57,8 +81,20 @@ function Shop() {
                     <img src={product.image} alt={product.title} className="w-32 h-32 object-contain mx-auto mb-4" />
                     <h3 className="text-lg font-bold mb-2">{product.title}</h3>
                     <p className="text-2xl font-bold text-green-400">${product.price}</p>
-                    <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded justify-center flex ">
-                        <ShoppingCart className="w-5 h-5 mr-2" /><input type="number" id="item-count" name="item-count" min="1" max="100" border={5} />
+                    <button 
+                        onClick={() => handleAddToCart(product, product.id)}
+                        className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded justify-center flex items-center w-full"
+                    >
+                        <ShoppingCart className="w-5 h-5 mr-2" /> <input 
+                        type="number" 
+                        id={`item-count-${product.id}`} 
+                        name="item-count" 
+                        min="1" 
+                        max="100" 
+                        value={quantities[product.id] || 1}
+                        onChange={(e) => handleQuantityChange(product.id, e.target.value)}
+                        className="mb-2 w-16 px-2 py-1 text-center text-black rounded"
+                    />
                     </button>
                 </AccentFrame>
             ))
