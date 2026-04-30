@@ -1,4 +1,3 @@
-/*import {useState} from 'react' */
 import './App.css'
 import { Link } from 'react-router-dom';
 import { DatalinesWithGrid } from "/home/lorenzo/Shopping-cart/src/components/neonblade-ui/datalines-with-grid/index.tsx";
@@ -6,7 +5,6 @@ import NeonGlow from "/home/lorenzo/Shopping-cart/src/components/neonblade-ui/ne
 import NeonGlowCornerCutCard from "/home/lorenzo/Shopping-cart/src/components/neonblade-ui/neon-glow-corner-cut-card";
 
 function App() {
-  /*const [count, setCount] = useState(0)*/
 
   return (
     <>
