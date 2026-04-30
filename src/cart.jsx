@@ -30,7 +30,7 @@ function Cart() {
          </div>
       <div className='flex flex-col items-end gap-35'>
         <p className='text-4xl'>Price: <NeonGlow colors="green">${item.price.toFixed(2)}</NeonGlow></p>
-      <div>  <button className='cursor-pointer hover:text-red-500 transition-colors' onClick={() => removeFromCart(item.id)} ><Trash /></button> </div>
+      <div>  <button className='cursor-pointer hover:text-green-500 transition-colors' onClick={() => removeFromCart(item.id)} ><Trash /></button> </div>
       </div>
     </div>
   ))}
